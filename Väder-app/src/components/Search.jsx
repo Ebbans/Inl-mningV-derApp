@@ -18,7 +18,7 @@ const Search = ({ value, onChange, onSearch }) => {
           placeholder="Search city..." 
           className="search-input"
         />
-        <button type="submit" className="search-button">Search</button>
+      
       </form>
     </div>
   );

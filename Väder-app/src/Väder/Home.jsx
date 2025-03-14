@@ -14,10 +14,7 @@ const Home = () => {
   const [favorites, setFavorites] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  // Handle city search input
-  const handleSearch = (e) => {
-    setCity(e.target.value);
-  };
+
 
   // Set the city to the selected favorite location
   const handleFavoriteClick = (location) => {
@@ -127,8 +124,9 @@ const Home = () => {
     <div className="home-container">
       <Header />
       <div className="head">
-        <h1 className="city-name">{city}</h1>
         <Search value={city} onChange={(e) => setCity(e.target.value)} />
+        <h1 className="city-names">{city}</h1>
+
       </div>
 
       {loading && <div className="loading">Loading...</div>}
