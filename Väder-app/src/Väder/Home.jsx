@@ -80,7 +80,7 @@ const Home = () => {
 
   // Convert valid_date (string) to a Date object
   const getDailyForecast = (data) => {
-    return data.slice(1, 9).map(item => ({
+    return data.slice(1, 6).map(item => ({
       date: new Date(item.valid_date + "T00:00:00"),
       sunrise: new Date(item.sunrise_ts * 1000).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }),
       sunset: new Date(item.sunset_ts * 1000).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }),
@@ -121,12 +121,21 @@ const Home = () => {
   }, []);
 
   return (
+            
     <div className="home-container">
       <Header />
       <div className="head">
         <Search value={city} onChange={(e) => setCity(e.target.value)} />
-        <h1 className="city-names">{city}</h1>
+        <h2 className="city-names">{city}</h2>
 
+      </div>
+      <div className="favorites">
+        <h3>Favoriter</h3>
+        <Favorites
+          favorites={favorites}
+          onFavoriteClick={handleFavoriteClick}
+          removeFavorite={removeFavorite}
+        />
       </div>
 
       {loading && <div className="loading">Loading...</div>}
@@ -156,13 +165,14 @@ const Home = () => {
             onClick={() => addFavorite(city)}
             disabled={favorites.includes(city)}
           >
-            {favorites.includes(city) ? 'Added to Favorites' : 'Add to Favorites'}
+            {favorites.includes(city) ? 'Favorit' : 'Favorit'}
           </button>
         </div>
       )}
-
+      
+      
       <div className="forecast">
-        <h3>Forecast for the next 8 days</h3>
+        <h2>5 dagars prognos</h2>
         {forecast.length === 0 ? (
           <p>No forecast data available.</p>
         ) : (
@@ -184,14 +194,7 @@ const Home = () => {
         )}
       </div>
 
-      <div className="favorites">
-        <h3>Favorite Locations</h3>
-        <Favorites
-          favorites={favorites}
-          onFavoriteClick={handleFavoriteClick}
-          removeFavorite={removeFavorite}
-        />
-      </div>
+     
     </div>
   );
 };

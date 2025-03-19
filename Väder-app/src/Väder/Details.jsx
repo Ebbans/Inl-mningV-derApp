@@ -10,8 +10,8 @@ const Details = ({ weather}) => {
             <p>Temperature: {weather.temperature}°C</p>
             <p>Description: {weather.description}</p>
             <p>Humidity: {weather.humidity}%</p>
-            <p>Sunrise: {weather.sunrise}</p> {/* Displaying the formatted sunrise time */}
-            <p>Sunset: {weather.sunset}</p>   {/* Displaying the formatted sunset time */}
+            <p>Sunrise: {weather.sunrise}</p> 
+            <p>Sunset: {weather.sunset}</p>  
           </>
           
         )}
