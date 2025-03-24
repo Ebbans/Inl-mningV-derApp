@@ -15,11 +15,6 @@ const Details = ({ weather}) => {
           </>
           
         )}
-
-        
- 
-        console.log('Timestamp:', item.timestamp_local);
-        console.log('Formatted Date:', new Date(item.timestamp_local * 1000));
       </div>
     );
   };
